@@ -1,0 +1,60 @@
+﻿#login_FirstDiv{
+	width: 860px;
+	height: 300px;
+	position: fixed;
+    left: 18%;
+	top: 20%;
+	border: 1px solid rgba(255, 80, 80, 0);
+    box-shadow: inset 1px 0px 9px 6px black;
+}
+#login_TopDiv{
+	width: 1366px;
+    height: 128px;
+   
+}
+#pictureDiv{
+	position: fixed;
+    left: 18%;
+	top: 3%;
+}
+#login_FormDiv{
+	
+	width: 380px;
+	height: 330px;
+	background-color: rgba(255, 165, 0, 0.19);;
+	position: fixed;
+    left: 49%;
+	top: 17%;
+	border: 5px solid rgba(204, 204, 204, 0.35);
+	box-shadow: 11px 8px 14px 0px rgba(47, 201, 226, 0.23);
+}
+#fromDiv{
+	position: fixed;
+    top: 32%;
+    left: 52%;
+	font-weight: 600;
+}
+#login_FormScnDiv{
+    width: 380px;
+    background-color: rgba(255, 193, 7, 0.36);;
+    height: 46px;
+}
+#login_FromSpan{
+	font-size: 24px;
+    font-family: cursive;
+    font-weight: 600;
+}
+.buttonClass{
+	width: 53px;
+    height: 23px;
+    font-size: 16px;
+}
+body{
+	margin:0px;
+	position: absolute;
+	background-color: rgba(204, 255, 0, 0.23);
+}
+.fromFort{
+	font-size: large;
+    font-family: 宋体;
+}

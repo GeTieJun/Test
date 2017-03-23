@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx.xsd
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop.xsd">
+	
+      <!-- 找到配置database的properties文件 -->
+	<context:property-placeholder location="WEB-INF/hibernate/db.properties" />
+	<!-- 自动扫描加注解的包 -->
+	<context:component-scan base-package="com.sihuatech" />
+	<!-- struts2不支持jdk的动态代理，需要改成CGLIB的动态代理 -->
+	<aop:aspectj-autoproxy proxy-target-class="true"/>	
+     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="user" value="${user}"></property>
+        <property name="password" value="${password}"></property>
+        <property name="jdbcUrl" value="${jdbcUrl}"></property>
+        <property name="driverClass" value="${driverClass}"></property>
+     </bean>
+     
+     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+       <property name="dataSource" ref="dataSource"></property>
+       <property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
+       <property name="mappingLocations" value="classpath:com/sihuatech/entities/*.hbm.xml"></property>
+     </bean>
+     
+     <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+       <property name="sessionFactory" ref="sessionFactory"></property>
+     </bean>
+     <tx:annotation-driven transaction-manager="transactionManager"/>
+</beans>

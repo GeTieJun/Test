@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.sihuatech.entities.Room" table="room" catalog="sihuatech">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="native"></generator>
+        </id>
+        <property name="number" type="java.lang.String">
+            <column name="number" length="20" />
+        </property>
+        <property name="capacity" type="java.lang.Integer">
+            <column name="capacity" length="20" />
+        </property>
+        <property name="projector" type="java.lang.String">
+        	<column name="projector" length="20"></column>
+        </property>
+    </class>
+</hibernate-mapping>
